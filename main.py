@@ -3,6 +3,15 @@ from selenium.webdriver.common.by import By
 
 from selenium import webdriver
 
+class Company:
+    def __init__(self, name, phone, email, location, site):
+        self.name = name
+        self.phone = phone
+        self.email = email
+        self.location = location
+        self.site = site
+    def to_csv(self):
+        return f"{self.name},{self.phone},{self.email},{self.location},{self.site}"
 
 def get_categories():
     categories = []
