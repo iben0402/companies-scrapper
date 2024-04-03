@@ -22,14 +22,15 @@ def generate_urls(categories, region, baseurl):
 
 
 def get_number_of_pages(driver, url):
-    driver.get(self=driver, url=url)
+    driver.get(url)
     time.sleep(3)
     pagination_last_elements = driver.find_elements(By.CLASS_NAME, 'pagination-last')
     if pagination_last_elements:
         button = pagination_last_elements[0]
         a_element = button.find_elements(By.CSS_SELECTOR, 'a')
+
         if a_element:
-            number_of_pages = a_element[0].find_elements(By.TAG_NAME, "data-paginatorpage")
+            number_of_pages = a_element[0].get_attribute("data-paginatorpage")
             return number_of_pages
 
     return 1
